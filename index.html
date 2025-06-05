@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        body{
+            background: rgb(255, 30, 0);
+        }
+        #frame{
+            display:flex;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            width:300px;
+            height:410px;
+            background: #000;
+            border-radius: 20px;
+            box-shadow: -10px 10px 10px grey;
+        }
+        button{
+            width:24%;
+            height:9vh;
+            border-radius: 10px;
+            box-shadow: -5px 2px 20px ;
+            background:silver;
+            font-weight: 1000;
+            font-size: larger;
+        }
+        button:hover{
+            background:white;
+        }
+        button:active{
+            background:orange;
+        }
+        #screen{
+            width:100%;
+            background:pink;
+            height:140px;
+            border-radius: 20px 20px 0px 0px;
+            box-shadow: inset -10px 10px 100px grey;
+            text-align:right;
+            font-size: 50px;
+        }
+        #buttonset{
+            position: absolute;
+            top:35%;
+        }
+    </style>
+    <p style="text-align: center; font-weight: 1000;font-size: 50px;font-family: cursive;">Calculator</p>
+    <div id="frame">
+        <div id="screen"></div>
+        <div id="buttonset">
+            <button id="bc" onclick="tap('c')" >AC</button>
+            <button id="b1" value="1" onclick="tap('1')">1</button>
+            <button id="b2" value="2" onclick="tap('2')">2</button>
+            <button id="b3" value="3" onclick="tap('3')">3</button>
+            <button id="b+" value="+" onclick="tap('+')">+</button>
+            <button id="b4" value="4" onclick="tap('4')">4</button>
+            <button id="b5" value="5" onclick="tap('5')">5</button>
+            <button id="b6" value="6" onclick="tap('6')">6</button>
+            <button id="b-" value="-" onclick="tap('-')">-</button>
+            <button id="b7" value="7" onclick="tap('7')">7</button>
+            <button id="b8" value="8" onclick="tap('8')">8</button>
+            <button id="b9" value="9" onclick="tap('9')">9</button>
+            <button id="bx" value="*" onclick="tap('*')">X</button>
+            <button id="b0" value="0" onclick="tap('0')">0</button>
+            <button id="b/" value="/" onclick="tap('/')">/</button>
+            <button id="b=" onclick="tap('=')">=</button>
+        </div>
+    </div>
+    <script>
+        let output=document.getElementById("screen");
+        let b1=document.getElementById("b1");
+        function tap(a){
+            if(a!='=' && a!='c'){
+            output.innerHTML += a;
+            let o=output.innerHTML;
+            }
+            if (a == 'c') {
+                output.innerHTML = "";
+            }
+            if(a=='='){
+                let o=eval(output.innerHTML);
+                output.innerHTML=o;
+            }
+        }
+    </script>
+</body>
+</html>
